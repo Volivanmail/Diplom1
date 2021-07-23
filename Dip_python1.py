@@ -78,15 +78,15 @@ class Add_VK_foto_in_YaDi:
             }
             url = "https://cloud-api.yandex.net/v1/disk/resources/upload/"
             req = requests.post(url=url, params=params, headers=headers)
-            res = req.json()
             if req.status_code == 202:
                 pprint(f"Фотография {file['file_name']} загружена успешно")
 
+for it in trange(5):
+    sleep(.01)
 
 if __name__ == '__main__':
     uploader = Add_VK_foto_in_YaDi('D:\\Study_Pyton\\dip_par\\token_VK.txt', 'D:\\Study_Pyton\\dip_par\\token_YaDi.txt')
     uploader.VK_photo()
     uploader.upload()
-    for it in trange(5):
-        sleep(.01)
+
 
